@@ -31,26 +31,23 @@ public class StudentDAO {
     	return slist; 	/*RETURNS OBJECTS (STUDENT) FROM LISTARRAY*/
     }
     		
-	
+	//METHOD TO GET STUDENT BY EMAIL
     public Student getStudentByEmail(List<Student> studentList, String studentEmail){
     	/*ITERATING THROUGH ARRAYLIST*/
     	for (Student student : studentList) {	/*TYPE STUDENT(OBJECT) NAMED STUDENT FOR THIS FOR EACH LOOP, OF STUDENTLIST ARRAY)*/
     		if (student.getEmail() == studentEmail) {	/*CHECKING IF OBJECT'S EMAIL MATCHES EMAIL GIVEN*/
-    			return student;	/*RETURNS STUDENT IF FOUND*/
-    		} else {
-    			System.out.println("Student email not found"); /*RETURNS NOT FOUND NOTIFICATION*/
+    			return student;	/*RETURNS TRUE WHEN A STUDENT MATCHE IS FOUND*/
     		}
     	}
+    	return null;	/*RETURNS NOTHING WHEN A STUDENT MATCHE IS FOUND*/
     }
-
+    //METHOD TO CHECK IF EMAIL AND PASSWORD MATCH
     public boolean validateUser(List<Student> studentList, String studentEmail, String studentPass){
     	for (Student student : studentList) {	/*TYPE STUDENT(OBJECT) NAMED STUDENT FOR THIS FOR EACH LOOP, OF STUDENTLIST ARRAY)*/
     		if (student.getEmail() == studentEmail && student.getPass() == studentPass) {	/*CHECKING IF OBJECT'S EMAIL && PASSWORD MATCHESMATCHES EMAIL GIVEN*/
-    			return true;	/*RETURNS TRUE STUDENT EMAIL AND PASSWORD MATCHES IF FOUND*/
-    		} else {
-    			System.out.println("Student email / password does not match or not found!"); /*RETURNS NOT FOUND NOTIFICATION*/
-    			return false;
+//    			return true;	/*RETURNS TRUE STUDENT EMAIL AND PASSWORD MATCHES IF FOUND*/
     		}
     	}
+		return true;	/*RETURNS TRUE STUDENT EMAIL AND PASSWORD MATCHES IF FOUND*/
     }
 }

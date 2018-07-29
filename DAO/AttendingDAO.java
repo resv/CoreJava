@@ -17,41 +17,51 @@ public class AttendingDAO {
 	String specific = ("\\FILE_BANK\\attending.csv");
 	File aFile = new File(directory + specific);
 	
+	//READS FROM ATTENDING LIST AND RETURNS IT TO USER
     public List<Attending> getAttending() throws FileNotFoundException{    	
-    	Scanner aReader = new Scanner(aFile);
+    	Scanner aReader = new Scanner(aFile);	//INITIALIZE SCANNER
     	ArrayList<Attending> alist = new ArrayList<Attending>(); /*CREATES ARRAYLIST TO STORE INFORMATION FROM ATTENDING CSV (aFile)*/
     	
-    	while (aReader.hasNextLine()) {
-    		String data[] = aReader.nextLine().split(",");
-    		for (int i = 0; i < data.length; i++) {
-    			alist.add(new Attending(Integer.parseInt(data[i]),data[i+1]));
+    	while (aReader.hasNextLine()) {	// WHILE LOOP TO CONTINUE IF THERE IS STILL A NEXT LINE PRESENT
+    		String data[] = aReader.nextLine().split(",");	//WE SPLIT "," AND ADD IT TO A TEMP ARRAY
+    		for (int i = 0; i < data.length; i++) {	//FOR LOOP TO ITERATE THROUGH TEMP ARRAY
+    			alist.add(new Attending(Integer.parseInt(data[i]),data[i+1]));	//ADD A NEW ATTENDING OBJECT INTO THE ATTENDING LIST
     		}
     	}
-    	aReader.close();
-		return alist;
+    	aReader.close();	//CLOSES READER
+		return alist;	//RETURNS ATTENDING LIST TO USER
     }
     
+    
+    //METHOD THAT CHECKS IF STUDENT IS ALREADY ATTENDING A COURSE, IF NOT ,CALL saveAttending()
     public void registerStudentToCourse(List<Attending> attending, String studentEmail, int courseID){
 //    	Boolean counter = false;
-    	for (Attending alist : attending) {
-    		if(studentEmail == alist.getStudentEmail() && courseID == alist.getCourseID()) {
+    	for (Attending alist : attending) {	//ITERATE THROUGH ATTENDING LIST
+    		if(studentEmail == alist.getStudentEmail() && courseID == alist.getCourseID()) {	//CHECKS TO SEE IF GIVEN EMAIL AND COURSEID PARAMETERS MATCH ATTENDING LIST
 //    			counter = true;
     		} else {
 //    		if(counter == false) {
-    			attending.add(new Attending(courseID,studentEmail));
-    			saveAttending(attending);
+    			attending.add(new Attending(courseID,studentEmail));	//IF NO MATCH THEN WE ADD THOSE VALUES INTO THE PARAMETER HERE
+    			saveAttending(attending);	//CALL saveAttending() METHOD
 //    		}
     		}
     	}
     }
-
-    public List<Course> getStudentCourses(List<Course> courseList, List<Attending> attending, String studentEmail){
-    	ArrayList<Course> courseList = new Array<Course>();
-    	for(Attending alist : attending) {
-    		if (studentEmail == attending.get())
+    
+    
+    //METHOD THAT CHECKS FOR STUDENT EMAIL, IN ATTENDING LIST AND IF IT MATCHES IT CREATES A NEW LIST WITH ALL OF THE ATTENDING COURSES OF THAT STUDENT 
+    public List<Course> getStudentCourses(List<Course> courseList, List<Attending> attending, String studentEmail){  
+    	ArrayList<Course> newclist = new ArrayList<Course>();	//WE INITALIZE A NEW TEMP ARRAY THAT WILL PRINT THE ATTENDING COURSES
+    	for(Attending attendingList : attending) {	//ITERATE THROUGH ATTENDING LIST FROM ABOVE METHODS
+    		if (studentEmail == attendingList.getStudentEmail()) {	// CHECK TO SEE IF EMAIL INPUT MATCHES AN EMAIL EXISTING IN ATTENTING LIST
+    			for (Course courses : courseList) {	//ITERATE THROUGH COURSE LIST GIVEN IN PARAMETERS
+    				if (courses.getCourseID() == attendingList.getStudentEmail()) {	//CHECK TO SEE IF COURSEID MATCHES THE STUDENT'S EMAIL
+    					newclist.add( new Course(courses.getCourseID(),courses.getCourseName(),courses.getInstructorName())); 	//IF TRURE WE ADD COURSE ID AND COURSE NAME TO NEW TEMP ARRAY
+    				}
+    			}
+    		}
     	}
-    	
-    	
+    	return newclist;	//RETURN THE NEW TEMP ARRAY OF COURSE ID AND COURSE NAME, STUDENT IS ATTENDING
     }
 
     public void saveAttending(List<Attending> attending){

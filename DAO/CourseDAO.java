@@ -1,15 +1,15 @@
 package CoreJava.DAO;
 
 import CoreJava.Models.Course;
-import CoreJava.Models.Student;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CourseDAO {
-    public List<Course> getAllCourses(){
+    public List<Course> getAllCourses() throws FileNotFoundException{
 		/*INITIALIZING FILE*/
     	String directory = ("C:\\Users\\akim4\\Google Drive\\CODE\\JAVAPROGRAMS\\PERSCHOLAS PLATFORM JD WORKSPACE\\src\\CoreJava\\Models");
     	String specific = ("\\FILE_BANK\\courses.csv");
