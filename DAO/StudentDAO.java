@@ -18,19 +18,17 @@ public class StudentDAO {
     		
     	/*INITIALIZING SCANNER*/	
     	Scanner sReader = new Scanner(sFile);
-    	ArrayList<Student> slist = new ArrayList<Student>(); /*CREATES ARRAYLIST TO STORE INFORMATION FROM STUDENTS CSV (sFile)*/
+    	ArrayList<Student> slist = new ArrayList<Student>();	/*CREATES ARRAYLIST TO STORE INFORMATION FROM STUDENTS CSV (sFile)*/
     		
     	/*WHILE LOOP TO READ FILE*/
-    	while (sReader.hasNextLine()) {
+    	while (sReader.hasNextLine()) {	/*READER KEEPS ITERATING WHILE THERE IS DATA ON THE NEXT LINE*/
     		String data[] = sReader.nextLine().split(","); /* PUTS THE INFORMATION INTO A VARIABLE SPLIT BY ","*/
     		for (int i = 0; i < data.length; i++) {
-    			slist.add(new Student(data[i], data[i+1], data[i+2]));    /*CREATES STUDENT OBJECT WITH DATA FROM CSV*/
+    			slist.add(new Student(data[i], data[i+1], data[i+2]));	/*CREATES STUDENT OBJECT WITH DATA FROM STUDENT CSV*/
     		}
     	}
-    	sReader.close(); /*CLOSES READER*/
-    	
-    	/*RETURNS OBJECTS FROM LISTARRAY*/
-    	return slist;
+    	sReader.close();	/*CLOSES READER*/
+    	return slist; 	/*RETURNS OBJECTS (STUDENT) FROM LISTARRAY*/
     }
     		
 	
