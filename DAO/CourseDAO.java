@@ -22,9 +22,7 @@ public class CourseDAO {
     	
     	while (cReader.hasNextLine()) {	/*READER KEEPS ITERATING WHILE THERE IS DATA ON THE NEXT LINE*/
     		String data[] = cReader.nextLine().split(",");  /* PUTS THE INFORMATION INTO A VARIABLE SPLIT BY ","*/
-    		for (int i = 0; i < data.length; i++) {
-    			clist.add(new Course(data[i], data[i+1], data[i+2]));  /*CREATES COURSE OBJECT WITH DATA FROM COURSE CSV*/
-    		}
+    			clist.add(new Course(data[0], data[1], data[2]));  /*CREATES COURSE OBJECT WITH DATA FROM COURSE CSV*/
     	}
     	cReader.close();  /*CLOSES READER*/
     	return clist;	/*RETURNS OBJECTS (COURSES) FROM LISTARRAY*/

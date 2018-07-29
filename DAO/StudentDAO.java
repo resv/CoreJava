@@ -23,9 +23,7 @@ public class StudentDAO {
     	/*WHILE LOOP TO READ FILE*/
     	while (sReader.hasNextLine()) {	/*READER KEEPS ITERATING WHILE THERE IS DATA ON THE NEXT LINE*/
     		String data[] = sReader.nextLine().split(","); /* PUTS THE INFORMATION INTO A VARIABLE SPLIT BY ","*/
-    		for (int i = 0; i < data.length; i++) {
-    			slist.add(new Student(data[i], data[i+1], data[i+2]));	/*CREATES STUDENT OBJECT WITH DATA FROM STUDENT CSV*/
-    		}
+    			slist.add(new Student(data[0], data[1], data[2]));	/*CREATES STUDENT OBJECT WITH DATA FROM STUDENT CSV*/
     	}
     	sReader.close();	/*CLOSES READER*/
     	return slist; 	/*RETURNS OBJECTS (STUDENT) FROM LISTARRAY*/

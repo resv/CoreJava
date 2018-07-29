@@ -43,6 +43,4 @@ package CoreJava.Models;
 			public void setInstructorName(String instructorName) {
 				this.instructorName = instructorName;
 			}
-		
-		
 		}

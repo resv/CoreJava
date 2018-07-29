@@ -7,11 +7,13 @@ import CoreJava.Models.Attending;
 import CoreJava.Models.Course;
 import CoreJava.Models.Student;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class MainRunner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Are you a(n)");
         System.out.println("1. Student");
         System.out.println("2. Quit");

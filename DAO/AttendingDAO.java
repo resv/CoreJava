@@ -22,16 +22,16 @@ public class AttendingDAO {
 	//READS FROM ATTENDING LIST AND RETURNS IT TO USER
     public List<Attending> getAttending() throws FileNotFoundException{    	
     	Scanner aReader = new Scanner(aFile);	//INITIALIZE SCANNER
-    	ArrayList<Attending> alist = new ArrayList<Attending>(); /*CREATES ARRAYLIST TO STORE INFORMATION FROM ATTENDING CSV (aFile)*/
+    	ArrayList<Attending> attendingList = new ArrayList<Attending>(); /*CREATES ARRAYLIST TO STORE INFORMATION FROM ATTENDING CSV (aFile)*/
     	
     	while (aReader.hasNextLine()) {	// WHILE LOOP TO CONTINUE IF THERE IS STILL A NEXT LINE PRESENT
     		String data[] = aReader.nextLine().split(",");	//WE SPLIT "," AND ADD IT TO A TEMP ARRAY
     		for (int i = 0; i < data.length; i++) {	//FOR LOOP TO ITERATE THROUGH TEMP ARRAY
-    			alist.add(new Attending(Integer.parseInt(data[i]),data[i+1]));	//ADD A NEW ATTENDING OBJECT INTO THE ATTENDING LIST
+    			attendingList.add(new Attending(Integer.parseInt(data[0]),data[1]));	//ADD A NEW ATTENDING OBJECT INTO THE ATTENDING LIST
     		}
     	}
     	aReader.close();	//CLOSES READER
-		return alist;	//RETURNS ATTENDING LIST TO USER
+		return attendingList;	//RETURNS ATTENDING LIST TO USER
     }
     
     
