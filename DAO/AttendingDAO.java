@@ -5,6 +5,8 @@ import CoreJava.Models.Course;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -34,7 +36,7 @@ public class AttendingDAO {
     
     
     //METHOD THAT CHECKS IF STUDENT IS ALREADY ATTENDING A COURSE, IF NOT ,CALL saveAttending()
-    public void registerStudentToCourse(List<Attending> attending, String studentEmail, int courseID){
+    public void registerStudentToCourse(List<Attending> attending, String studentEmail, int courseID) throws IOException{
 //    	Boolean counter = false;
     	for (Attending alist : attending) {	//ITERATE THROUGH ATTENDING LIST
     		if(studentEmail == alist.getStudentEmail() && courseID == alist.getCourseID()) {	//CHECKS TO SEE IF GIVEN EMAIL AND COURSEID PARAMETERS MATCH ATTENDING LIST
@@ -64,8 +66,14 @@ public class AttendingDAO {
     	return newclist;	//RETURN THE NEW TEMP ARRAY OF COURSE ID AND COURSE NAME, STUDENT IS ATTENDING
     }
 
-    public void saveAttending(List<Attending> attending){
-
+    
+    
+    //METHOD THAT GETS CALLED WHEN THERE IS A MISMATCH ON registerStudentCourses();
+    public void saveAttending(List<Attending> attending) throws IOException{
+    	FileWriter attendingWriter = new FileWriter(aFile, true);	//INITIALIZES THE FILE WRITER
+    	for (Attending newalist : attending) {	//ITERATES THROUGH THE ATTENDING ARRAYLIST
+    		attendingWriter.write(newalist.getCourseID() + "," + newalist.getStudentEmail());	//OVERWRITES COURSE ID AND STUDENTEMAIL INTO ATTENDING CSV (aFile)
+    	}
+    	attendingWriter.close();	//CLOSES WRITER	
     }
-
 }
