@@ -37,7 +37,7 @@ public class StudentDAO {
     public Student getStudentByEmail(List<Student> studentList, String studentEmail){
     	/*ITERATING THROUGH ARRAYLIST*/
     	for (Student student : studentList) {	/*TYPE STUDENT(OBJECT) NAMED STUDENT FOR THIS FOR EACH LOOP, OF STUDENTLIST ARRAY)*/
-    		if (studentList.get(student.getEmail()) == studentEmail) {	/*CHECKING IF OBJECT'S EMAIL MATCHES EMAIL GIVEN*/
+    		if (student.getEmail() == studentEmail) {	/*CHECKING IF OBJECT'S EMAIL MATCHES EMAIL GIVEN*/
     			return student;	/*RETURNS STUDENT IF FOUND*/
     		} else {
     			System.out.println("Student email not found"); /*RETURNS NOT FOUND NOTIFICATION*/
