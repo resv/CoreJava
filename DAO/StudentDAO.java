@@ -43,13 +43,16 @@ public class StudentDAO {
     			System.out.println("Student email not found"); /*RETURNS NOT FOUND NOTIFICATION*/
     		}
     	}
-    	
-    	
     }
 
     public boolean validateUser(List<Student> studentList, String studentEmail, String studentPass){
-
+    	for (Student student : studentList) {	/*TYPE STUDENT(OBJECT) NAMED STUDENT FOR THIS FOR EACH LOOP, OF STUDENTLIST ARRAY)*/
+    		if (student.getEmail() == studentEmail && student.getPass() == studentPass) {	/*CHECKING IF OBJECT'S EMAIL && PASSWORD MATCHESMATCHES EMAIL GIVEN*/
+    			return true;	/*RETURNS TRUE STUDENT EMAIL AND PASSWORD MATCHES IF FOUND*/
+    		} else {
+    			System.out.println("Student email / password does not match or not found!"); /*RETURNS NOT FOUND NOTIFICATION*/
+    			return false;
+    		}
+    	}
     }
-    
-    
 }
