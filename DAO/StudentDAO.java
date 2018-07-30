@@ -34,10 +34,10 @@ public class StudentDAO {
     	/*ITERATING THROUGH ARRAYLIST*/
     	for (Student student : studentList) {	/*TYPE STUDENT(OBJECT) NAMED STUDENT FOR THIS FOR EACH LOOP, OF STUDENTLIST ARRAY)*/
     		if (student.getEmail().equals(studentEmail.toLowerCase())) {	/*CHECKING IF OBJECT'S EMAIL MATCHES EMAIL GIVEN*/
-    			return student;	/*RETURNS TRUE WHEN A STUDENT MATCHE IS FOUND*/
+    			return student;	/*RETURNS A STUDENT WHEN A MATCH IS FOUND*/
     		}
     	}
-    	return null;	/*RETURNS NOTHING WHEN A STUDENT MATCHE IS FOUND*/
+    	return null;	/*RETURNS NULL WHEN A STUDENT MATCH IS NOT FOUND(METHOD WOULD ERROR AND NOT LET ME PROGRESS WITH OUT NULL RETURN*/
     }
     //METHOD TO CHECK IF EMAIL AND PASSWORD MATCH
     public boolean validateUser(List<Student> studentList, String studentEmail, String studentPass){

@@ -19,7 +19,6 @@ public class CourseDAO {
     	Scanner cReader = new Scanner(cFile);
     	ArrayList<Course> clist = new ArrayList<Course>(); /*CREATES ARRAYLIST TO STORE INFORMATION FROM COURSE CSV (cFile)*/
     		
-    	
     	while (cReader.hasNextLine()) {	/*READER KEEPS ITERATING WHILE THERE IS DATA ON THE NEXT LINE*/
     		String data[] = cReader.nextLine().split(",");  /* PUTS THE INFORMATION INTO A VARIABLE SPLIT BY ","*/
     			clist.add(new Course(data[0], data[1], data[2]));  /*CREATES COURSE OBJECT WITH DATA FROM COURSE CSV*/
