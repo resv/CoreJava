@@ -57,9 +57,9 @@ public class AttendingDAO {
     	for(Attending attendingList : attending) {	//ITERATE THROUGH ATTENDING LIST FROM ABOVE METHODS
     		if (studentEmail == attendingList.getStudentEmail()) {	// CHECK TO SEE IF EMAIL INPUT MATCHES AN EMAIL EXISTING IN ATTENTING LIST
     			for (Course courses : courseList) {	//ITERATE THROUGH COURSE LIST GIVEN IN PARAMETERS
-    				if (courses.getCourseID() == attendingList.getStudentEmail()) {	//CHECK TO SEE IF COURSEID MATCHES THE STUDENT'S EMAIL
-    					newclist.add( new Course(courses.getCourseID(),courses.getCourseName(),courses.getInstructorName())); 	//IF TRURE WE ADD COURSE ID AND COURSE NAME TO NEW TEMP ARRAY
-    				}                                                                                                                                                                                                                                                                                                                                                                                                                                 
+    				if (courses.getCourseID() == attendingList.getCourseID()) {	//CHECK TO SEE IF COURSEID MATCHES THE STUDENT'S EMAIL
+    					newclist.add(new Course(courses.getCourseID(),courses.getCourseName(),courses.getInstructorName())); 	//IF TRURE WE ADD COURSE ID AND COURSE NAME TO NEW TEMP ARRAY
+    				}
     			}
     		}
     	}

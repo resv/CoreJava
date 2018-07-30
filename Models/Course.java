@@ -13,9 +13,9 @@ package CoreJava.Models;
 				
 			}
 //	2ND CONSTRUCTOR WITH PARAMETERS
-			public Course(String courseID, String courseName, String instructorName) {
+			public Course(String data, String courseName, String instructorName) {
 				
-				this.courseID = courseID;
+				this.courseID = data;
 				this.courseName = courseName;
 				this.instructorName = instructorName;
 			}
@@ -43,4 +43,6 @@ package CoreJava.Models;
 			public void setInstructorName(String instructorName) {
 				this.instructorName = instructorName;
 			}
+		
+		
 		}
