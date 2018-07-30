@@ -33,7 +33,7 @@ public class StudentDAO {
     public Student getStudentByEmail(List<Student> studentList, String studentEmail){
     	/*ITERATING THROUGH ARRAYLIST*/
     	for (Student student : studentList) {	/*TYPE STUDENT(OBJECT) NAMED STUDENT FOR THIS FOR EACH LOOP, OF STUDENTLIST ARRAY)*/
-    		if (student.getEmail() == studentEmail) {	/*CHECKING IF OBJECT'S EMAIL MATCHES EMAIL GIVEN*/
+    		if (student.getEmail().equals(studentEmail.toLowerCase())) {	/*CHECKING IF OBJECT'S EMAIL MATCHES EMAIL GIVEN*/
     			return student;	/*RETURNS TRUE WHEN A STUDENT MATCHE IS FOUND*/
     		}
     	}
@@ -42,10 +42,11 @@ public class StudentDAO {
     //METHOD TO CHECK IF EMAIL AND PASSWORD MATCH
     public boolean validateUser(List<Student> studentList, String studentEmail, String studentPass){
     	for (Student student : studentList) {	/*TYPE STUDENT(OBJECT) NAMED STUDENT FOR THIS FOR EACH LOOP, OF STUDENTLIST ARRAY)*/
-    		if (student.getEmail() == studentEmail && student.getPass() == studentPass) {	/*CHECKING IF OBJECT'S EMAIL && PASSWORD MATCHESMATCHES EMAIL GIVEN*/
-//    			return true;	/*RETURNS TRUE STUDENT EMAIL AND PASSWORD MATCHES IF FOUND*/
+    		if (student.getEmail().equalsIgnoreCase(studentEmail) && student.getPass().equalsIgnoreCase(studentPass)) {	/*CHECKING IF OBJECT'S EMAIL && PASSWORD MATCHESMATCHES EMAIL GIVEN*/
+    			return true;	/*RETURNS TRUE STUDENT EMAIL AND PASSWORD MATCHES IF FOUND*/
     		}
     	}
-		return true;	/*RETURNS TRUE STUDENT EMAIL AND PASSWORD MATCHES IF FOUND*/
+		return false;	/*RETURNS TRUE STUDENT EMAIL AND PASSWORD MATCHES IF FOUND*/
     }
 }
+

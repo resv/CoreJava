@@ -20,7 +20,7 @@ package CoreJava.Models;
 				this.instructorName = instructorName;
 			}
 //	GETTERS AND SETTERS
-			public String getCourseID() {
+			public String getID() {
 				return courseID;
 			}
 		
@@ -28,7 +28,7 @@ package CoreJava.Models;
 				this.courseID = courseID;
 			}
 		
-			public String getCourseName() {
+			public String getName() {
 				return courseName;
 			}
 		
@@ -36,7 +36,7 @@ package CoreJava.Models;
 				this.courseName = courseName;
 			}
 		
-			public String getInstructorName() {
+			public String getInstructor() {
 				return instructorName;
 			}
 		
