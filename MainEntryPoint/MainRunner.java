@@ -7,7 +7,6 @@ import CoreJava.Models.Attending;
 import CoreJava.Models.Course;
 import CoreJava.Models.Student;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -63,6 +62,7 @@ public class MainRunner {
         }
 
         System.out.println("Closing Program. Goodbye.");
+        in.close();
     }
 
     public static void myClasses(Student student, List<Course> courseList, List<Attending> attendingList){
