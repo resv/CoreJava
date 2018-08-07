@@ -1,12 +1,12 @@
 package CoreJava.DAO;
 
-import CoreJava.Models.Course;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import CoreJava.Models.Course;
 
 public class CourseDAO {
     public List<Course> getAllCourses() throws FileNotFoundException{
